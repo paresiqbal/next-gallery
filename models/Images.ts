@@ -4,7 +4,7 @@ const basicImageSchema = z.object({
     page: z.number(),
     per_page: z.number(),
     prev_page: z.string().optional(),
-    next_page: z.string().option(),
+    next_page: z.string().optional(),
     total_result: z.number()
 })
 
@@ -17,7 +17,7 @@ const photoSchema = z.object({
         large: z.string(),
     }),
     alt: z.string(),
-    blurredDataUrl: string().optional()
+    blurredDataUrl: z.string().optional()
 })
 
 export const ImagesSchemaWithPhoto = basicImageSchema.extend({
