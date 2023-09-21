@@ -1,7 +1,10 @@
+// Componnents
+import Gallery from "./components/Gallery";
+
 export default function Home() {
   return (
     <main>
-      <h1>Hello Worlds</h1>
+      <Gallery />
     </main>
   );
 }
