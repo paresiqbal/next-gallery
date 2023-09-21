@@ -1,28 +1,31 @@
-import type { ImageResults } from "@/models/Images";
-import { ImagesSchemaWithPhoto } from "@/models/Images";
+import type { ImagesResults } from "@/models/Images";
+import { ImagesSchemaWithPhotos } from "@/models/Images";
 import env from "./env";
 
 export default async function fetchImages(
   url: string
-): Promise<ImageResults | undefined> {
+): Promise<ImagesResults | undefined> {
   try {
     const res = await fetch(url, {
       headers: {
         Authorization: env.PEXEL_API_KEY,
       },
     });
+
     if (!res.ok) throw new Error("Fetch Images error!\n");
 
-    const imageResults: ImageResults = await res.json();
-    console.log(imageResults);
+    const imagesResults: ImagesResults = await res.json();
 
-    // Parse data with ZOD Schema
-    const parseData = ImagesSchemaWithPhoto.parse(imageResults);
-    if (parseData.total_result === 0) return undefined;
+    //console.log(imagesResults)
 
-    return parseData;
-  } catch (err) {
-    // Show in terminal console
-    if (err instanceof Error) console.log(err.stack);
+    // Parse data with Zod schema
+    const parsedData = ImagesSchemaWithPhotos.parse(imagesResults);
+
+    if (parsedData.total_results === 0) return undefined;
+
+    return parsedData;
+  } catch (e) {
+    // Will show in terminal console
+    if (e instanceof Error) console.log(e.stack);
   }
 }
