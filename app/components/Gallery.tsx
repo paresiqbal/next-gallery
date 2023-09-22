@@ -13,7 +13,7 @@ export default async function Gallery() {
   return (
     <section className="px-2 my-3 grid gap-2 grid-cols-gallery">
       {images.photos.map((photo) => (
-        <ImgContainer photo={photo} />
+        <ImgContainer photo={photo} key={photo.id} />
       ))}
     </section>
   );
