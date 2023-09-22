@@ -14,8 +14,7 @@ export default function ImgContainer({ photo }: Props) {
       <Image
         src={photo.src.large}
         alt={photo.alt}
-        width={250}
-        height={250}
+        fill={true}
         className="object-cover"
       />
     </div>
