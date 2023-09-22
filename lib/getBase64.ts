@@ -27,4 +27,8 @@ export default async function addBluredDataUrl(
   );
   // resolve all promise
   const base64Resolve = await Promise.all(base64Promises);
+
+  const photosWithBlur: Photo[] = images.photos.map((photo, i) => {
+    photo.blurredDataUrl = base64Resolve[i];
+  });
 }
