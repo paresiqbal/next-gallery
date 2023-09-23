@@ -10,7 +10,9 @@ type Props = {
 };
 
 export default async function Gallery({ topic }: Props) {
-  const url = "https://api.pexels.com/v1/curated";
+  const url = !topic
+    ? "https://api.pexels.com/v1/curated"
+    : `https://api.pexels.com/v1/search?query=${topic}`;
 
   const images: ImagesResults | undefined = await fetchImages(url);
 
