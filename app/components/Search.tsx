@@ -12,5 +12,20 @@ export default function Search() {
     router.push(`/result/${search}`);
     setSearch("");
   };
-  return <div>Search</div>;
+
+  return (
+    <form
+      className="flex justify-center md:justify-between"
+      onSubmit={handleSubmit}
+    >
+      <input
+        className="bg-white p-2 w-[260px] sm:w-80 text-xl rounded-md text-black"
+        type="text"
+        name="search"
+        placeholder="Search"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+    </form>
+  );
 }
