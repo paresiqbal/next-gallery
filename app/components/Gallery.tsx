@@ -5,7 +5,11 @@ import ImgContainer from "./ImgContainer";
 // helpers
 import addBluredDataUrl from "@/lib/getBase64";
 
-export default async function Gallery() {
+type Props = {
+  topic?: string | undefined;
+};
+
+export default async function Gallery({ topic }: Props) {
   const url = "https://api.pexels.com/v1/curated";
 
   const images: ImagesResults | undefined = await fetchImages(url);
