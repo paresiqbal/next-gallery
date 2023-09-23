@@ -12,6 +12,6 @@ export function generateMedadata({ params: { term } }: Props) {
   };
 }
 
-export function searchResults({ params: { term } }: Props) {
+export default function searchResults({ params: { term } }: Props) {
   return <Gallery topic={term} />;
 }
