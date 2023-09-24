@@ -7,6 +7,6 @@ type Props = {
   nextPage: string | null,
 };
 
-export default function Footer() {
+export default function Footer({ topic, page, prevPage, nextPage }: Props) {
   return <div>Footer</div>;
 }
