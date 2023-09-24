@@ -11,9 +11,17 @@ type Props = {
 };
 
 export default async function Gallery({ topic = "curated", page }: Props) {
-  const url = !topic
-    ? "https://api.pexels.com/v1/curated"
-    : `https://api.pexels.com/v1/search?query=${topic}`;
+  let url;
+  if (topic === "curated" && page) {
+    // Browsing beyond home
+    url = `https://api.pexels.com/v1/curated?page=${page}`;
+  } else if (topic === "curated") {
+    // Home page
+    url = "https://api.pexels.com/v1/curated";
+  } else if (!page) {
+    // First page of result
+    url = `https://api.pexels.com/v1/search?query=${topic}`;
+  }
 
   const images: ImagesResults | undefined = await fetchImages(url);
 
