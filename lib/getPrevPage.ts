@@ -21,4 +21,6 @@ export default function getPrevPage(images: ImagesResults) {
   }
 
   if (nextPage && parseInt(nextPage) >= totalPage) nextPage = null;
+
+  return { prevPage, nextPage };
 }
