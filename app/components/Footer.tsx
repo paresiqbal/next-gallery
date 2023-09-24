@@ -46,5 +46,10 @@ export default function Footer({ topic, page, prevPage, nextPage }: Props) {
       )}
     </>
   ) : null;
-  return <div>Footer</div>;
+  return (
+    <footer className="flex flex-row justify-between items-center px-2 py-4 font-bold w-60 mx-auto">
+      {prevPage}
+      {nextPage}
+    </footer>
+  );
 }
