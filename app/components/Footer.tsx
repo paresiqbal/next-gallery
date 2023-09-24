@@ -20,7 +20,7 @@ export default function Footer({ topic, page, prevPage, nextPage }: Props) {
   const nextPageArea = nextPage ? (
     <Link
       href={`/results/${topic}/${nextPage}`}
-      className={!prevPage ? "more" : null}
+      className={!prevPage ? "mx-auto" : ""}
     >
       className={!prevPage ? "more" : null} &gt;&gt;&gt
     </Link>
