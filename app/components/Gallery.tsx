@@ -5,6 +5,7 @@ import ImgContainer from "./ImgContainer";
 // helpers
 import addBluredDataUrl from "@/lib/getBase64";
 import getPrevPage from "@/lib/getPrevPage";
+import Footer from "./Footer";
 
 type Props = {
   topic?: string | undefined;
@@ -46,7 +47,7 @@ export default async function Gallery({ topic = "curated", page }: Props) {
           <ImgContainer photo={photo} key={photo.id} />
         ))}
       </section>
-      {/* Add Footer */}
+      <Footer {...footerProps} />
     </>
   );
 }
