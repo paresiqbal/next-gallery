@@ -16,5 +16,15 @@ export default function Footer({ topic, page, prevPage, nextPage }: Props) {
       pageNums.push(i);
     }
   }
+
+  const nextPageArea = nextPage ? (
+    <Link
+      href={`/results/${topic}/${nextPage}`}
+      className={!prevPage ? "more" : null}
+    >
+      className={!prevPage ? "more" : null} &gt;&gt;&gt
+    </Link>
+  ) : null;
+
   return <div>Footer</div>;
 }
