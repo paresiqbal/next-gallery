@@ -37,10 +37,13 @@ export default async function Gallery({ topic = "curated", page }: Props) {
   // calculate pagination
 
   return (
-    <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
-      {photoWithBlur.map((photo) => (
-        <ImgContainer photo={photo} key={photo.id} />
-      ))}
-    </section>
+    <>
+      <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
+        {photoWithBlur.map((photo) => (
+          <ImgContainer photo={photo} key={photo.id} />
+        ))}
+      </section>
+      {/* Add Footer */}
+    </>
   );
 }
