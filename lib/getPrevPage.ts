@@ -19,4 +19,6 @@ export default function getPrevPage(images: ImagesResults) {
   if (prevPage && parseInt(prevPage) + 5 < totalPage) {
     nextPage = (parseInt(prevPage) + 5).toString();
   }
+
+  if (nextPage && parseInt(nextPage) >= totalPage) nextPage = null;
 }
