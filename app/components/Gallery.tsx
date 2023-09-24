@@ -4,6 +4,7 @@ import ImgContainer from "./ImgContainer";
 
 // helpers
 import addBluredDataUrl from "@/lib/getBase64";
+import getPrevPage from "@/lib/getPrevPage";
 
 type Props = {
   topic?: string | undefined;
@@ -35,6 +36,7 @@ export default async function Gallery({ topic = "curated", page }: Props) {
   const photoWithBlur = await addBluredDataUrl(images);
 
   // calculate pagination
+  const { prevPage, nextPage } = getPrevPage(images);
 
   return (
     <>
