@@ -11,10 +11,13 @@ export function generateMedadata({ params: { myParams } }: Props) {
   const page = myParams?.[1] ?? "1";
 
   return {
-    title: `Results for ${myParams} - Page ${page}`,
+    title: `Results for ${topic} - Page ${page}`,
   };
 }
 
 export default function searchResults({ params: { myParams } }: Props) {
-  return <Gallery topic={myParams} />;
+  const topic = myParams?.[0] ?? "curated";
+  const page = myParams?.[1] ?? "1";
+
+  return <Gallery topic={topic} page={page} />;
 }
