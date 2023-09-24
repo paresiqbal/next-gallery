@@ -22,9 +22,17 @@ export default function Footer({ topic, page, prevPage, nextPage }: Props) {
       href={`/results/${topic}/${nextPage}`}
       className={!prevPage ? "mx-auto" : ""}
     >
-      className={!prevPage ? "more" : null} &gt;&gt;&gt
+      {!prevPage ? "more" : null} &gt;&gt;&gt
     </Link>
   ) : null;
 
+  const prevPageArea = prevPage ? (
+    <Link
+      href={`/results/${topic}/${nextPage}`}
+      className={!nextPage ? "mx-auto" : ""}
+    >
+      &lt;&lt;&lt {!nextPage ? "back" : null}
+    </Link>
+  ) : null;
   return <div>Footer</div>;
 }
