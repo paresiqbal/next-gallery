@@ -34,6 +34,8 @@ export default async function Gallery({ topic = "curated", page }: Props) {
 
   const photoWithBlur = await addBluredDataUrl(images);
 
+  // calculate pagination
+
   return (
     <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
       {photoWithBlur.map((photo) => (
