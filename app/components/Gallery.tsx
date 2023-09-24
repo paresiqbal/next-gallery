@@ -37,6 +37,7 @@ export default async function Gallery({ topic = "curated", page }: Props) {
 
   // calculate pagination
   const { prevPage, nextPage } = getPrevPage(images);
+  const footerProps = { topic, page, nextPage, prevPage };
 
   return (
     <>
