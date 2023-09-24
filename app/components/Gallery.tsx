@@ -7,6 +7,7 @@ import addBluredDataUrl from "@/lib/getBase64";
 
 type Props = {
   topic?: string | undefined;
+  page?: string | undefined;
 };
 
 export default async function Gallery({ topic }: Props) {
