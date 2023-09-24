@@ -11,5 +11,12 @@ export default function getPrevPage(images: ImagesResults) {
 
   const prevPage = images?.prev_page ? getPageNumber(images.prev_page) : null;
 
-  const totalPage = 
+  const totalPage =
+    images.total_results % images.per_page
+      ? Math.ceil(images.total_results / images.per_page)
+      : images.total_results / images.per_page + 1;
+
+  if (prevPage && parseInt(prevPage) + 5 < totalPage) {
+    nextPage = (parseInt(prevPage) + 5).toString();
+  }
 }
