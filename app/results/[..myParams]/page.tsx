@@ -2,16 +2,19 @@ import Gallery from "@/app/components/Gallery";
 
 type Props = {
   params: {
-    term: string;
+    myParams: (string | undefined)[];
   };
 };
 
-export function generateMedadata({ params: { term } }: Props) {
+export function generateMedadata({ params: { myParams } }: Props) {
+  const topic = myParams?.[0] ?? "curated";
+  const page = myParams?.[1] ?? "1";
+
   return {
-    title: `Results for ${term}`,
+    title: `Results for ${myParams} - Page ${page}`,
   };
 }
 
-export default function searchResults({ params: { term } }: Props) {
-  return <Gallery topic={term} />;
+export default function searchResults({ params: { myParams } }: Props) {
+  return <Gallery topic={myParams} />;
 }
