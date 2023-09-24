@@ -21,6 +21,8 @@ export default async function Gallery({ topic = "curated", page }: Props) {
   } else if (!page) {
     // First page of result
     url = `https://api.pexels.com/v1/search?query=${topic}`;
+  } else {
+    url = `https://api.pexels.com/v1/search?query=${topic}&page=${page}`;
   }
 
   const images: ImagesResults | undefined = await fetchImages(url);
