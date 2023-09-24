@@ -22,13 +22,14 @@ export default async function Gallery({ topic = "curated", page }: Props) {
     // First page of result
     url = `https://api.pexels.com/v1/search?query=${topic}`;
   } else {
+    // search rsult beyond fist page
     url = `https://api.pexels.com/v1/search?query=${topic}&page=${page}`;
   }
 
   const images: ImagesResults | undefined = await fetchImages(url);
 
   // return response
-  if (!images)
+  if (!images || images.per_page === 0)
     return <h2 className="m-4 text-2xl font-bold">No Images Found</h2>;
 
   const photoWithBlur = await addBluredDataUrl(images);
